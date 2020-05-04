@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="ISO-8859-1">
+<title>Matricula</title>
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<link
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	rel="stylesheet" />
+</head>
+<body>
+
+	<nav th:replace="fragments/nav :: nav"></nav>
+
+	<div th:replace="fragments/nav :: modal" ></div>
+
+
+
+	<script type="text/javascript" src="/js/jquery-3.4.1.slim.min.js"></script>
+	<script type="text/javascript" src="/js/popper.min.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="ISO-8859-1">
+<title>Matricula</title>
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<link
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	rel="stylesheet" />
+</head>
+<body>
+
+	<nav th:replace="fragments/nav :: nav"></nav>
+
+	<div th:replace="fragments/nav :: modal"></div>
+
+
+	<a th:href="@{/curso/new}">
+		<button class="badd">
+			<i class="iadd fa fa-plus"></i>
+		</button>
+	</a>
+
+	<div class="container">
+		<h1>Lista de cursos</h1>
+		<div class="alert alert-primary" role="alert" th:if="${msg}"
+			th:text="${msg}"></div>
+		<div class="alert alert-success" role="alert" th:if="${mensaje}"
+			th:text="${mensaje}"></div>
+		<div class="alert alert-danger" role="alert" th:if="${error}"
+			th:text="${error}"></div>
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Editar</th>
+					<th scope="col">ELiminar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each=" c : ${lista}">
+					<td th:text="${c.id}"></td>
+					<td th:text="${c.nombre}"></td>
+					<td><a th:href="@{'/curso/update/'+ ${c.id}}"> <i
+							class="fa fa-edit"></i>
+					</a></td>
+					<td><a th:href="@{'/curso/delete/'+ ${c.id}}"> <i
+							class="fa fa-trash text-danger"></i>
+					</a></td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+
+	<script type="text/javascript" src="/js/jquery-3.4.1.slim.min.js"></script>
+	<script type="text/javascript" src="/js/popper.min.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+</body>
+</html>
