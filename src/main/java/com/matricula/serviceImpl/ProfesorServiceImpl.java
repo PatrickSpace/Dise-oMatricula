@@ -3,6 +3,7 @@ package com.matricula.serviceImpl;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.matricula.entity.Profesor;
@@ -12,6 +13,7 @@ import com.matricula.service.IProfesorService;
 @Service
 public class ProfesorServiceImpl implements IProfesorService{
 
+	@Autowired
 	private IProfesorRepository dR;
 	
 	@Override
