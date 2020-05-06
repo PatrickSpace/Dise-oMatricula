@@ -16,7 +16,7 @@
 	<!-- NAV -->
 	<nav th:fragment="nav"
 		class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="#">Matricula</a>
+		<a class="navbar-brand" th:href="@{/}">Matricula</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
 			aria-expanded="false" aria-label="Toggle navigation">
@@ -24,18 +24,14 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNavDropdown">
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" href="#">Reportes</a>
+				<li class="nav-item"><a class="nav-link" th:href="@{/alumno/list}">Alumnos</a>
 				</li>
-				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" href="#"
-					id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-					aria-haspopup="true" aria-expanded="false"> Mantenimiento </a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-						<a class="dropdown-item" th:href="@{/alumno/list}">Alumnos</a> <a
-							class="dropdown-item" th:href="@{/curso/list}">Cursos</a> <a
-							class="dropdown-item" th:href="@{/matricula/list}">Matricula</a>
-						<a class="dropdown-item" th:href="@{/profesor/list}">Docente</a>
-					</div></li>
+				<li class="nav-item"><a class="nav-link"th:href="@{/curso/list}">Cursos</a>
+				</li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/profesor/list}">Docente</a>
+				</li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/matricula/list}">Matricula</a>
+				</li>
 			</ul>
 			<span class="navbar-text">
 

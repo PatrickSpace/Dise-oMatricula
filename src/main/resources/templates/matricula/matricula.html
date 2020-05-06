@@ -23,41 +23,35 @@
 	<div class="container">
 		<h2>Agregar Alumno</h2>
 		<br>
-		<form class="row" th:action="@{/alumno/save}" th:object="${alumno}"
-			method="post">
+		<form class="row" th:action="@{/matricula/save}"
+			th:object="${matricula}" method="post">
 			<div class="col-lg-6 col-md-6 col-sm-12">
 				<div class="form-group">
-					<label for="exampleInputEmail1">DNI</label> <input type="number"
-						th:errorclass="'form-control alert-danger'" th:field="*{dni}"
-						class="form-control" required />
-					<div class="alert alert-danger" th:if="${#fields.hasErrors('dni')}"
-						th:errors="*{dni}"></div>
+					<label for="exampleInputEmail1">Ciclo</label> <input type="number" min="2020"
+						th:field="*{ciclo}" class="form-control" required />
 				</div>
 
 				<div class="form-group">
-					<label for="exampleInputEmail1">Nombre</label> <input type="text"
-						th:field="*{nombre}" class="form-control" required>
+					<label for="" class=" col-form-label">Curso </label> <select
+						class="form-control" th:field="*{curso.id}">
+						<option th:each="c: ${listcursos}" th:value="${c.id}"
+							th:text="${c.nombre}"
+							th:selected="(${c.id} == *{curso.id})"></option>
+					</select>
 				</div>
-				<div class="form-group">
-					<label>Email</label> <input th:field="*{email}" type="email"
-						class="form-control">
 
-				</div>
 				<div class="form-group">
-					<label>Username</label> <input th:field="*{username}" type="text" maxlength="9"
-						class="form-control"> <small class="form-text text-danger"
-						th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></small>
+					<label for="" class=" col-form-label">Profesor </label> <select
+						class="form-control" th:field="*{profesor.id}">
+						<option th:each="profe: ${listprofesores}" th:value="${profe.id}"
+							th:text="${profe.nombre}"
+							th:selected="(${profe .id} == *{profesor.id})"></option>
+					</select>
 				</div>
-				<div class="form-group">
-					<label>Password</label> <input th:field="*{password}"
-						type="password" class="form-control"> <small
-						class="form-text text-danger"
-						th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></small>
-				</div>
+
 			</div>
 
 			<div class="col-lg-6 col-md-6 col-sm-12">
-
 
 				<div style="opacity: 0;" class="form-group">
 					<label for="exampleInputPassword1">ID</label> <input
@@ -67,7 +61,7 @@
 			</div>
 			<p th:if="${error}" th:text="error"></p>
 			<button type="submit" class="btn btn-primary">Agregar</button>
-			<a th:href="@{/alumno/list}" class="btn btn-danger">Cancelar</a>
+			<a th:href="@{/matricula/list}" class="btn btn-danger">Cancelar</a>
 		</form>
 	</div>
 

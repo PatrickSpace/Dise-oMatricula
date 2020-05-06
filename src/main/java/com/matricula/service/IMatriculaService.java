@@ -13,4 +13,8 @@ public interface IMatriculaService {
 	public Matricula getMatricula(Long id);
 	
 	public List<Matricula> listar();
+	
+	public List<Matricula> listarciclo(int ciclo);
+	
+	
 }

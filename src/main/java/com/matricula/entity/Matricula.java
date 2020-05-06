@@ -27,48 +27,37 @@ public class Matricula implements Serializable{
 	private Long id;
 	
 	@Column(name = "ciclo", nullable = false)
-	private String ciclo;
-	
-	@Column(name = "year", nullable = false)
-	private int year;
+	private int ciclo;
 	
 	@ManyToOne
-	@JoinColumn(name = "Docente", nullable = false)
-	private Profesor docente;
+	@JoinColumn(name = "Profesro", nullable = false)
+	private Profesor profesor;
 	
 	@ManyToOne
 	@JoinColumn(name = "Curso", nullable = false)
 	private Curso curso;
 	
 	@OneToMany
-	@JoinColumn(name = "AlumnosXmatricula", nullable = true)
-	private List<AlumnosXmatricula> alumnos;
+	@JoinColumn(name = "Alumnos", nullable = true)
+	private List<Alumno> alumnos;
 
+	
+	public int addAlumno(Alumno al) {
+		
+		if(this.alumnos.size() < 11) {
+			this.alumnos.add(al);
+			return 1;
+		}
+		else
+			return 0;
+	}
+	
 	public Matricula() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	
-	public Matricula(Long id, String ciclo, int year, Profesor docente, Curso curso, List<AlumnosXmatricula> alumnos) {
-		super();
-		this.id = id;
-		this.ciclo = ciclo;
-		this.year = year;
-		this.docente = docente;
-		this.curso = curso;
-		this.alumnos = alumnos;
-	}
-
-
-	public List<AlumnosXmatricula> getAlumnos() {
-		return alumnos;
-	}
-
-	public void setAlumnos(List<AlumnosXmatricula> alumnos) {
-		this.alumnos = alumnos;
-	}
-
 	public Long getId() {
 		return id;
 	}
@@ -77,20 +66,20 @@ public class Matricula implements Serializable{
 		this.id = id;
 	}
 
-	public String getCiclo() {
+	public int getCiclo() {
 		return ciclo;
 	}
 
-	public void setCiclo(String ciclo) {
+	public void setCiclo(int ciclo) {
 		this.ciclo = ciclo;
 	}
 
-	public Profesor getDocente() {
-		return docente;
+	public Profesor getProfesor() {
+		return profesor;
 	}
 
-	public void setDocente(Profesor docente) {
-		this.docente = docente;
+	public void setProfesor(Profesor profesor) {
+		this.profesor = profesor;
 	}
 
 	public Curso getCurso() {
@@ -101,15 +90,29 @@ public class Matricula implements Serializable{
 		this.curso = curso;
 	}
 
+	public List<Alumno> getAlumnos() {
+		return alumnos;
+	}
 
-	public int getYear() {
-		return year;
+	public void setAlumnos(List<Alumno> alumnos) {
+		this.alumnos = alumnos;
+	}
+
+	public Matricula(Long id, int ciclo, Profesor profesor, Curso curso, List<Alumno> alumnos) {
+		super();
+		this.id = id;
+		this.ciclo = ciclo;
+		this.profesor = profesor;
+		this.curso = curso;
+		this.alumnos = alumnos;
 	}
 
 
-	public void setYear(int year) {
-		this.year = year;
-	}
+
+
+
+
+
 
 
 	

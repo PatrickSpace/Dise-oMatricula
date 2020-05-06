@@ -25,11 +25,11 @@ public class Alumno implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	
-	@Column(name = "username", nullable = false)
+	@Column(name = "username", nullable = true)
 	private String username;
 	
-	@Column(name = "password", nullable = false, length = 150)
+	
+	@Column(name = "password", nullable = true, length = 150)
 	private String password;
 	
 	@Column(name = "nombre", nullable = false)

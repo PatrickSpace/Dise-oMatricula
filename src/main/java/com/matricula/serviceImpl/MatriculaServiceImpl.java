@@ -37,8 +37,12 @@ public class MatriculaServiceImpl implements IMatriculaService{
 
 	@Override
 	public List<Matricula> listar() {
-		// TODO Auto-generated method stub
 		return mR.findAll();
+	}
+
+	@Override
+	public List<Matricula> listarciclo(int ciclo) {
+		return mR.listarxciclo(ciclo);
 	}
 
 	
